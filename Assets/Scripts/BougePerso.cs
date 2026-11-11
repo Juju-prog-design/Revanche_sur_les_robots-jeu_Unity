@@ -650,7 +650,7 @@ public class BougePerso : MonoBehaviour
 
 
         // Collision des ennemis (entre le cercle de détection de leur NavMesh et leur collider pour pas que le perso passe à travers eux)
-        if (collision.CompareTag("CollisionsEnnemis"))
+        if (collision.CompareTag("Ennemi"))
         {
             // Active l'Audio source de la douleur du perso
             ouch.GetComponent<AudioSource>().enabled = true;
@@ -667,28 +667,31 @@ public class BougePerso : MonoBehaviour
         }
 
 
-        // Collider si le perso a pas fini la mission 1 (- de 10 ennemis)
-        if (collision.CompareTag("PasFini") && infosPerso.nbEnnemis < 10)
+        // Collider si le perso a pas fini la mission 1
+        if (collision.CompareTag("PasFini"))
         {
-            // Active le panneau PasFini1
-            panneauPasFini1.SetActive(true);
+            // - de 10 ennemis
+            if (infosPerso.nbEnnemis < 10)
+            {
+                // Active le panneau PasFini1
+                panneauPasFini1.SetActive(true);
 
-            // Active le collider du mur invisible pour que le perso ne puisse pas entrer dans le village
-            mursInvisibles.SetActive(true);
+                // Active le collider du mur invisible pour que le perso ne puisse pas entrer dans le village
+                mursInvisibles.SetActive(true);
 
-            // Invoque la méthode "EnleverPanneaux" dans 2 secondes
-            Invoke(nameof(EnleverPanneaux), 2f);
-        }
+                // Invoque la méthode "EnleverPanneaux" dans 2 secondes
+                Invoke(nameof(EnleverPanneaux), 2f);
+            }
 
+            // 10 ennemis
+            if (infosPerso.nbEnnemis == 10)
+            {
+                // Dit à la caméra principale d'arrêter sa musique
+                audioPrincipal.enabled = false;
 
-        // Collider si le perso a fini la mission 1 (10 ennemis)
-        if (collision.CompareTag("PasFini") && infosPerso.nbEnnemis == 10)
-        {
-            // Dit à la caméra principale d'arrêter sa musique
-            audioPrincipal.enabled = false;
-
-            // Active l'Audio source du village
-            GameObject.Find("Village").GetComponent<AudioSource>().enabled = true;
+                // Active l'Audio source du village
+                GameObject.Find("Village").GetComponent<AudioSource>().enabled = true;
+            }
         }
 
 
