@@ -255,7 +255,7 @@ GameObject:
   - component: {fileID: 8048590745835336615}
   - component: {fileID: -1299364447897644742}
   m_Layer: 0
-  m_Name: Ennemi petit
+  m_Name: Ennemi petit 2
   m_TagString: CollisionsEnnemis
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -509,7 +509,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: c4181d6d3d60f0244a618c598a6fc32d, type: 2}
+  - {fileID: 2100000, guid: 3951ce71f57e63148a9a139dad3d3333, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -599,7 +599,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f8dc00d2e45ba8048a13098943cb2052, type: 2}
+  - {fileID: 2100000, guid: 18c5a3a3ef3b5b64f8f82023c0876ebf, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -869,7 +869,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: c4181d6d3d60f0244a618c598a6fc32d, type: 2}
+  - {fileID: 2100000, guid: 3951ce71f57e63148a9a139dad3d3333, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

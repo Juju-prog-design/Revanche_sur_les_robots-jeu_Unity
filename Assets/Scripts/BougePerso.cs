@@ -414,8 +414,8 @@ public class BougePerso : MonoBehaviour
         lesInputs.tire = false;
 
         // Empêche de tirer pendant la recharge
-        if (rechargementEnCours)
-            return;
+        //if (rechargementEnCours)
+        //return;
 
         // Commence la séquence de tir et de recharge
         rechargementEnCours = true;

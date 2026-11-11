@@ -31564,7 +31564,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: fe51284d42a4b4c4596d76d1fcb91bab, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.7
+  m_Volume: 0
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -34007,7 +34007,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 19944613210d1d74abecba24dc74602f, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -34448,7 +34448,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c59b0ae2420782340831a72d3479e9c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ennemiGros: {fileID: 4793308401782643751, guid: b3f026fce6a817b46adb6d69af6e571d, type: 3}
+  ennemiGros: {fileID: 4978224019091809461, guid: a339bfd07ce64a54497304d1f14d4b19, type: 3}
   ennemiPetit: {fileID: 4978224019091809461, guid: efe110f689254c04285ff44175ed85b2, type: 3}
   listeEmplacementsAleatoiresGros:
   - {x: 180, y: 5.8, z: -55}
@@ -50919,7 +50919,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 2fc2f3a952d68634fa1041ce2c2d09ca, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.8
+  m_Volume: 0
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -54877,7 +54877,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 245eea885778693499d6be84fc74b764, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -65541,7 +65541,7 @@ MonoBehaviour:
   maxMouvCamHaut: 90
   maxMouvCamBas: -90
   zoneBordEcran: 20
-  vitesseRotationBord: 200
+  vitesseRotationBord: 300
   cinemachineFP: {fileID: 733548394}
   cinemachineTP: {fileID: 963194225}
   cameraTP: {fileID: 362312628}
