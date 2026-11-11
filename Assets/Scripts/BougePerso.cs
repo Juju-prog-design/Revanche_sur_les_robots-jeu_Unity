@@ -730,7 +730,10 @@ public class BougePerso : MonoBehaviour
     // Détermine si le perso touche au sol ou non (création d'une sphère sous le perso)
     void VerifierSol()
     {
-        Vector3 spherePosition = new Vector3(transform.position.x, transform.position.y - distanceDuSol, transform.position.z);
+        // Position de la sphère sous le perso
+        Vector3 spherePosition = transform.position + Vector3.up * distanceDuSol;
+
+        // Vérifie si la sphère touche le sol
         toucheSol = Physics.CheckSphere(spherePosition, GroundedRadius, layerSol, QueryTriggerInteraction.Ignore);
     }
 
@@ -738,35 +741,27 @@ public class BougePerso : MonoBehaviour
     // Permet au perso de sauter
     void SautEtGravite()
     {
-        // Applique la gravité au fil du temps si la vitesse verticale est sous la vitesse finale
-        if (vitesseVerticale < vitesseFinale)
-        {
-            vitesseVerticale += Gravite * Time.deltaTime;
-        }
+        // Vitesse finale
+        float vitesseFinale = -53.0f;
+
+        // Applique la gravité sans dépasser la vitesse maximale de chute
+        if (vitesseVerticale > vitesseFinale)
+            vitesseVerticale = Mathf.Max(vitesseVerticale + Gravite * Time.deltaTime, vitesseFinale);
 
         // Si le perso touche au sol
         if (toucheSol)
         {
-            // Réinitialise le délai de chute
-            chuteTimeout = delaiChute;
-
             // Empêche la vélocité de baisser à l'infini quand le perso touche au sol
             if (vitesseVerticale < 0.0f)
-            {
                 vitesseVerticale = -2f;
-            }
 
             // Si on appuie sur la barre d'espace ET que le délai pour sauter à nouveau est de 0 : Saute
             if (lesInputs.saute && sautTimeout <= 0.0f)
-            {
                 vitesseVerticale = Mathf.Sqrt(hauteurSaut * -2f * Gravite);
-            }
 
             // Enclenche le délai pour sauter à nouveau
             if (sautTimeout >= 0.0f)
-            {
                 sautTimeout -= Time.deltaTime;
-            }
         }
 
         // Sinon
@@ -774,12 +769,6 @@ public class BougePerso : MonoBehaviour
         {
             // Réinitialise le délai pour sauter à nouveau
             sautTimeout = delaiSaut;
-
-            // Réinitialise le délai de chute
-            if (chuteTimeout >= 0.0f)
-            {
-                chuteTimeout -= Time.deltaTime;
-            }
 
             // Si le perso ne touche pas au sol : ne Saute PAS
             lesInputs.saute = false;
