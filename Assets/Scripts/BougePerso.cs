@@ -177,10 +177,6 @@ public class BougePerso : MonoBehaviour
         infosPerso.nbPieces = 0;
         infosPerso.nbEnnemis = 0;
 
-        // Permet de savoir les valeurs du nb de pièces et d'ennemis tués par le perso dans la console
-        Debug.Log(infosPerso.nbEnnemis + " ennemis");
-        Debug.Log(infosPerso.nbPieces + " pièces");
-
         // Trouve les composantes du Character controller et le script "StarterAssetsInputs" du perso
         controller = GetComponent<CharacterController>();
         lesInputs = GetComponent<StarterAssetsInputs>();
@@ -196,6 +192,10 @@ public class BougePerso : MonoBehaviour
 
         // Réinitialise les délais de saut
         sautTimeout = delaiSaut;
+
+        // Lock le curseur
+        Cursor.lockState = CursorLockMode.Confined;
+        Cursor.visible = false;
     }
 
 
@@ -523,6 +523,7 @@ public class BougePerso : MonoBehaviour
 
                 // Déverrouille le curseur
                 Cursor.lockState = CursorLockMode.Confined;
+                Cursor.visible = false;
             }
         }
     }
