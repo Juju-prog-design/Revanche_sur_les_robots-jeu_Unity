@@ -439,8 +439,8 @@ public class BougePerso : MonoBehaviour
             tire.GetComponent<AudioSource>().enabled = true;
 
             // Invoque les méthodes "FiniTir" et "Recharge" dans 1 seconde
-            Invoke("FiniTir", 1);
-            Invoke("Recharge", 1);
+            Invoke(nameof(FiniTir), 1f);
+            Invoke(nameof(Recharge), 1f);
 
             // Rend le booléen "Arme" de l'Animator du perso à faux (pour pouvoir tirer à nouveau)
             lesInputs.tire = false;
@@ -465,9 +465,8 @@ public class BougePerso : MonoBehaviour
                 objetCollisions = hit.collider.transform.gameObject;
 
                 // Si ce qui est touché est un ennemi
-                if (objetCollisions.tag == "Ennemi")
+                if (objetCollisions.CompareTag("Ennemi"))
                 {
-                    Debug.Log("OK");
                     // Détruit l'ennemi
                     Destroy(objetCollisions);
 
@@ -520,7 +519,7 @@ public class BougePerso : MonoBehaviour
             recharge.GetComponent<AudioSource>().enabled = true;
 
             // Invoque la méthode "DesactiveRecharge" dans 1 seconde
-            Invoke("DesactiveRecharge", 1);
+            Invoke(nameof(DesactiveRecharge), 1f);
         }
     }
 
@@ -550,7 +549,7 @@ public class BougePerso : MonoBehaviour
             GetComponent<AudioSource>().enabled = true;
 
             // Invoque la méthode "RetourEnHaut" dans 1 seconde
-            Invoke("RetourEnHaut", 1);
+            Invoke(nameof(RetourEnHaut), 1f);
         }
 
         // Sinon
@@ -571,7 +570,7 @@ public class BougePerso : MonoBehaviour
         panneauChute.SetActive(true);
 
         // Invoque la méthode "EnleverPanneaux" dans 3 secondes
-        Invoke("EnleverPanneaux", 3);
+        Invoke(nameof(EnleverPanneaux), 3f);
     }
 
 
@@ -610,7 +609,7 @@ public class BougePerso : MonoBehaviour
     void OnTriggerEnter(Collider collision)
     {
         // Pièces
-        if (collision.tag == "Piece")
+        if (collision.CompareTag("Piece"))
         {
             // Active l'Audio source des pièces
             pieces.GetComponent<AudioSource>().enabled = true;
@@ -625,12 +624,12 @@ public class BougePerso : MonoBehaviour
             Debug.Log(infosPerso.nbPieces + " pièces");
 
             // Invoque la méthode "DesactivePieces" dans 1 seconde
-            Invoke("DesactivePieces", 1);
+            Invoke(nameof(DesactivePieces), 1f);
         }
 
 
         // Collision des ennemis (entre le cercle de détection de leur NavMesh et leur collider pour pas que le perso passe à travers eux)
-        if (collision.tag == "CollisionsEnnemis")
+        if (collision.CompareTag("CollisionsEnnemis"))
         {
             // Active l'Audio source de la douleur du perso
             ouch.GetComponent<AudioSource>().enabled = true;
@@ -639,16 +638,16 @@ public class BougePerso : MonoBehaviour
             panneauChute.SetActive(true);
 
             // Invoque la méthode "EnleverPanneaux" dans 3 secondes
-            Invoke("EnleverPanneaux", 3);
+            Invoke(nameof(EnleverPanneaux), 3f);
 
             // Invoque les méthodes suivantes après un certain délai
-            Invoke("DesactiveOuch", 2);
-            Invoke("EnleverPanneaux", 2);
+            Invoke(nameof(DesactiveOuch), 2f);
+            Invoke(nameof(EnleverPanneaux), 2f);
         }
 
 
         // Collider si le perso a pas fini la mission 1 (- de 10 ennemis)
-        if (collision.tag == "PasFini" && infosPerso.nbEnnemis < 10)
+        if (collision.CompareTag("PasFini") && infosPerso.nbEnnemis < 10)
         {
             // Active le panneau PasFini1
             panneauPasFini1.SetActive(true);
@@ -657,7 +656,7 @@ public class BougePerso : MonoBehaviour
             mursInvisibles.SetActive(true);
 
             // Invoque la méthode "EnleverPanneaux" dans 2 secondes
-            Invoke("EnleverPanneaux", 2);
+            Invoke(nameof(EnleverPanneaux), 2f);
         }
 
 
@@ -673,7 +672,7 @@ public class BougePerso : MonoBehaviour
 
 
         // Collider des murs invisbles si le perso n'a pas visité la maison abandonnée
-        if (collision.tag == "Maison")
+        if (collision.CompareTag("Maison"))
         {
             // Rend actif les murs invisibles
             murMaison1.GetComponent<BoxCollider>().enabled = true;
@@ -683,18 +682,18 @@ public class BougePerso : MonoBehaviour
             panneauMaison.SetActive(true);
 
             // Invoque la méthode "EnleverPanneaux" dans 2 secondes
-            Invoke("EnleverPanneaux", 3);
+            Invoke(nameof(EnleverPanneaux), 3f);
         }
 
 
         // Collider du pauvre Roger (squelette)
-        if (collision.tag == "Roger")
+        if (collision.CompareTag("Roger"))
         {
             // Active le panneau de Roger
             panneauRoger.SetActive(true);
 
             // Invoque la méthode "EnleverPanneaux" dans 2 secondes
-            Invoke("EnleverPanneaux", 2);
+            Invoke(nameof(EnleverPanneaux), 2f);
         }
     }
 
@@ -710,7 +709,7 @@ public class BougePerso : MonoBehaviour
             victoire.GetComponent<AudioSource>().enabled = true;
 
             // Invoque la méthode "SceneSuivante" dans 2 secondes
-            Invoke("SceneSuivante", 2);
+            Invoke(nameof(SceneSuivante), 2f);
         }
     }
 
