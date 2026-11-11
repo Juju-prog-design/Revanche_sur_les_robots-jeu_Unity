@@ -29,7 +29,7 @@ public class Agent : MonoBehaviour
     // Si le collider des ennemis entre en contact avec le tag "Player"
     void OnTriggerEnter(Collider collision)
     {
-        if (collision.tag == "Player")
+        if (collision.CompareTag("Player"))
         {
             // Met le booléen "peut" à vrai
             peut = true;
