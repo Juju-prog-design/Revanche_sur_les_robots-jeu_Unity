@@ -8605,8 +8605,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 362312628}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.120403044, y: 0.008663053, z: -0.0010507422, w: 0.99268675}
-  m_LocalPosition: {x: 14.904361, y: 6.8580456, z: -95.479164}
+  m_LocalRotation: {x: 0.122914016, y: 0.0086603705, z: -0.0010726557, w: 0.992379}
+  m_LocalPosition: {x: 14.873296, y: 7.1880455, z: -97.258896}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -8625,13 +8625,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineRotationComposer
   Composition:
-    ScreenPosition: {x: 0, y: 0.050000012}
+    ScreenPosition: {x: 0, y: 0.05}
     DeadZone:
       Enabled: 1
       Size: {x: 0, y: 0}
     HardLimits:
       Enabled: 1
-      Size: {x: 0.4, y: 1.14}
+      Size: {x: 0.6, y: 1.14}
       Offset: {x: 0, y: 0}
   CenterOnActivate: 1
   TargetOffset: {x: 0, y: 0, z: 0}
@@ -8684,7 +8684,7 @@ MonoBehaviour:
       Owner: {fileID: 362312635}
       Enabled: 1
       Input:
-        InputAction: {fileID: 0}
+        InputAction: {fileID: 5082991133974614888, guid: 1d6e640e716dc4ff6989b73d02023f2b, type: 3}
         Gain: 1
         CancelDeltaTime: 0
       InputValue: 0
@@ -8716,16 +8716,16 @@ MonoBehaviour:
   Radius: 5.48
   Orbits:
     Top:
-      Radius: 5.48
-      Height: 1.78
+      Radius: 4.93
+      Height: 1.06
     Center:
-      Radius: 5.91
-      Height: 2.44
+      Radius: 7.26
+      Height: 2.11
     Bottom:
-      Radius: 3.85
-      Height: 1
-    SplineCurvature: 0.2
-  RecenteringTarget: 2
+      Radius: 7.02
+      Height: 3.1
+    SplineCurvature: 1
+  RecenteringTarget: 3
   HorizontalAxis:
     Value: 1
     Center: 0
@@ -8737,7 +8737,7 @@ MonoBehaviour:
       Time: 2
     Restrictions: 0
   VerticalAxis:
-    Value: 1
+    Value: 0.5
     Center: 0.5
     Range: {x: 0, y: 1}
     Wrap: 0
@@ -21179,8 +21179,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineCamera
   Priority:
-    Enabled: 0
-    m_Value: 0
+    Enabled: 1
+    m_Value: 10
   OutputChannel: 1
   StandbyUpdate: 2
   m_StreamingVersion: 20170927
@@ -31543,8 +31543,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.12040305, y: 0.008663053, z: -0.0010507423, w: 0.99268675}
-  m_LocalPosition: {x: 14.904361, y: 6.8580456, z: -95.479164}
+  m_LocalRotation: {x: 0.12291404, y: 0.008660371, z: -0.0010726559, w: 0.992379}
+  m_LocalPosition: {x: 14.873296, y: 7.1880455, z: -97.258896}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -65527,10 +65527,10 @@ MonoBehaviour:
   vitesseCourse: 10
   vitesseRotation: 1
   accelerationDeceleration: 10
+  deceleration: 30
   hauteurSaut: 1.2
   Gravite: -15
   delaiSaut: 0.1
-  delaiChute: 0.15
   toucheSol: 1
   distanceDuSol: -0.14
   GroundedRadius: 0.5
@@ -65540,6 +65540,8 @@ MonoBehaviour:
   cibleCinemachine: {fileID: 229827136299638375}
   maxMouvCamHaut: 90
   maxMouvCamBas: -90
+  zoneBordEcran: 20
+  vitesseRotationBord: 100
   cinemachineFP: {fileID: 733548394}
   cinemachineTP: {fileID: 963194225}
   cameraTP: {fileID: 362312628}
