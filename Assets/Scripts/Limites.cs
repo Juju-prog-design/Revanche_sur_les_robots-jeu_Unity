@@ -10,7 +10,7 @@ public class Limites : MonoBehaviour
     // Si son collider entre entre en contact avec le tag "Player"
     void OnTriggerEnter(Collider collision)
     {
-        if (collision.tag == "Player")
+        if (collision.CompareTag("Player"))
         {
             // Rend le panneau actif
             panneauLimites.SetActive(true);

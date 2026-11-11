@@ -12,70 +12,70 @@ public class StarterAssetsInputs : MonoBehaviour
     public bool tire;
 
 
-    //Bouger
+    // Bouger
     public void OnBouge(InputValue value)
     {
         MoveInput(value.Get<Vector2>());
     }
 
 
-    //Regarder
+    // Regarder
     public void OnRegarder(InputValue value)
     {
         LookInput(value.Get<Vector2>());
     }
 
 
-    //Sauter
+    // Sauter
     public void OnSaute(InputValue value)
     {
         saute = value.isPressed;
     }
 
 
-    //Courir
+    // Courir
     public void OnCours(InputValue value)
     {
         cours = value.isPressed;
     }
 
 
-    //Valeurs quand le perso bouge
+    // Valeurs quand le perso bouge
     public void MoveInput(Vector2 newMoveDirection)
     {
         bouge = newMoveDirection;
     }
 
 
-    //Valeurs quand le perso regarde
+    // Valeurs quand le perso regarde
     public void LookInput(Vector2 newLookDirection)
     {
         regarder = newLookDirection;
     }
 
 
-    //Valeurs quand le perso saute
+    // Valeurs quand le perso saute
     public void JumpInput(bool newJumpState)
     {
         saute = newJumpState;
     }
 
 
-    //Valeurs quand le perso cours
+    // Valeurs quand le perso cours
     public void SprintInput(bool newSprintState)
     {
         cours = newSprintState;
     }
 
 
-    //Valeurs quand le perso tire avec son arme
+    // Valeurs quand le perso tire avec son arme
     public void OnTire(InputValue value)
     {
         tire = value.isPressed;
     }
 
 
-    //Permet de centrer la souris au centre de l'écran (quand on appuie sur la touche "Esc" du clavier après avoir cliqué dans la scène)
+    // Permet de centrer la souris au centre de l'écran (quand on appuie sur la touche "Esc" du clavier après avoir cliqué dans la scène)
     private void OnApplicationFocus()
     {
         Cursor.lockState = CursorLockMode.Locked;

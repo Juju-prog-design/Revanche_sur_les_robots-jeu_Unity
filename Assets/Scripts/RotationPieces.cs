@@ -3,10 +3,14 @@ using UnityEngine;
 
 public class RotationPieces : MonoBehaviour
 {
-    //Est appelée à chaque frame
+    // Vitesse de rotation
+    [SerializeField] private float vitesseRotation = 0.4f;
+
+
+    // Est appelée à chaque frame
     void Update()
     {
-        //Rotate sur son axe des Y
-        transform.Rotate(0, 0.4f, 0);
+        // Fait tourner la pièce (axe des Y) selon le temps écoulé
+        transform.Rotate(0f, vitesseRotation * Time.deltaTime, 0f);
     }
 }
