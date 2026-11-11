@@ -190,6 +190,10 @@ public class BougePerso : MonoBehaviour
         audioRecharge = recharge.GetComponent<AudioSource>();
         audioOuch = ouch.GetComponent<AudioSource>();
 
+        // Récupère l'AudioSource de la caméra principale
+        GameObject cameraPrincipale = GameObject.Find("Main Camera");
+        audioPrincipal = cameraPrincipale.GetComponent<AudioSource>();
+
         // Réinitialise les délais de saut
         sautTimeout = delaiSaut;
     }
@@ -677,10 +681,10 @@ public class BougePerso : MonoBehaviour
 
 
         // Collider si le perso a fini la mission 1 (10 ennemis)
-        if (collision.tag == "PasFini" && infosPerso.nbEnnemis == 10)
+        if (collision.CompareTag("PasFini") && infosPerso.nbEnnemis == 10)
         {
             // Dit à la caméra principale d'arrêter sa musique
-            GameObject.Find("Main Camera").GetComponent<AudioSource>().enabled = false;
+            audioPrincipal.enabled = false;
 
             // Active l'Audio source du village
             GameObject.Find("Village").GetComponent<AudioSource>().enabled = true;
@@ -734,7 +738,7 @@ public class BougePerso : MonoBehaviour
     void SceneSuivante()
     {
         // Dit à la caméra principale d'arrêter sa musique
-        GameObject.Find("Main Camera").GetComponent<AudioSource>().enabled = false;
+        audioPrincipal.enabled = false;
 
         // Charge la scène "Base"
         SceneManager.LoadScene("Base");
